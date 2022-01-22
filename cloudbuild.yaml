@@ -1,0 +1,11 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "--tag=gcr.io/$PROJECT_ID/ruby:latest"
+      - "--file=Dockerfile"
+      - "."
+    waitFor: ["-"]
+
+images:
+  - "gcr.io/$PROJECT_ID/ruby:latest"
